@@ -1,4 +1,3 @@
-// Create Responsive constructor class
 (function(options) {
 	var settings = {
 		breakPoint: 'large'
@@ -7,10 +6,10 @@
 	/* 
 	 * Constructor for the main 'Responsive' class 
 	 */
-	var Responsive = function(options){
-		if (options) { 
+	var Responsive = function(settings){
+		/*if (options) { 
 			$.extend(settings, options);
-		};
+		};*/
 		this.init(); 
 	};
 	
@@ -48,15 +47,17 @@
 	 * Initialises the object
 	 */
 	Responsive.prototype.init = function(){
-		this.responsiveCheck();
+		var obj = this;
+		obj.responsiveCheck();
 		
 		window.addEventListener('resize', this.regulate(function() {
-		    Responsive.responsiveCheck();
+			obj.responsiveCheck();
 		}, 100), false);
 	};
 	
 	options.Responsive = Responsive;
 }(window));
+
 
 
 

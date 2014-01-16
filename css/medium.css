@@ -1,0 +1,9 @@
+body:before {
+	content: 'medium';
+	display: none;
+}
+
+.pageWrap {
+	background: blue;
+	width: 768px;
+}

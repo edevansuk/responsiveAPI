@@ -1,0 +1,11 @@
+body:before {
+	content: 'small';
+	display: none;
+}
+
+.pageWrap {
+	background: red;
+	margin: 0px auto;
+	width: 320px;
+	height: 320px;
+}

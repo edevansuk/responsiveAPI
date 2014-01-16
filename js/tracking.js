@@ -1,0 +1,3 @@
+(function($){$.fn.trackAnalytic=function(options){return this.each(function(){var element=$(this);var defaults={category:"",action:"",label:null,value:null,nonInteraction:false};var settings=$.extend({},defaults,options);for(var setting in defaults){if(element.attr("data-track-"+setting)!=null)
+settings[setting]=element.attr("data-track-"+setting);}
+element.click(function(eventArgs){if(typeof(_gaq)!="undefined"){eventArgs.preventDefault();_gaq.push(["_trackEvent",settings.category,settings.action,settings.label,settings.value,settings.nonInteraction]);window.setTimeout(function(){window.location=eventArgs.currentTarget.href;},100);}});});};})(jQuery);

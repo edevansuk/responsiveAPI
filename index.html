@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Responsive JavaScript</title>
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/small.css" />	
+    <link rel="stylesheet" type="text/css" href="css/medium.css" media="only screen and (min-width:768px)" />
+    <link rel="stylesheet" type="text/css" href="css/large.css" media="only screen and (min-width:980px)" />
+</head>
+
+<body>
+
+<div class="pageWrap">
+	
+</div><!-- }}} pageWrap -->
+
+<script type="text/javascript" src="js/thirdPartyAPIs.js"></script>
+<script type="text/javascript">
+$script('responsive', function () {
+	console.log('responsive API loaded');
+	responsive.page = {
+		init: function(state) {
+			switch(state) {
+				case 'large':
+					responsive.page.large();
+					break;
+				case 'medium':
+					responsive.page.medium();
+					break;
+				case 'small':
+					responsive.page.small();
+					break;
+				default:
+					responsive.page.large();
+					break;
+			};
+		},
+		
+		large: function() {
+			console.log("Do large size");
+		},
+		
+		medium: function() {
+			console.log("Do medium size");
+		},
+		
+		small: function() {
+			console.log("Do small size");
+		}
+	};
+	
+	responsive.page.init(responsive.breakPoint);
+	window.addEventListener('resize', responsive.regulate(function() {
+		responsive.page.init(responsive.breakPoint);
+	}, 100), false);
+	
+	console.log(responsive);
+});
+
+$script('tracking', function () {
+	$("[data-track = 'true']").trackAnalytic();
+	console.log('Tracking script loaded and events added');
+});
+
+
+</script>
+</body>
+</html>

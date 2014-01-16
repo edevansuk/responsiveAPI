@@ -1,0 +1,9 @@
+body:before {
+	content: 'large';
+	display: none;
+}
+
+.pageWrap {
+	background: green;
+	width: 980px;
+}

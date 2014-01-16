@@ -1,8 +1,26 @@
-// Create a namespace for the sites API and modules
-var responsive = {
-	breakPoint: 'large',
+// Create Responsive constructor class
+(function(options) {
+	var settings = {
+		breakPoint: 'large'
+	};
 	
-	regulate: function(func, wait, immediate){
+	/* 
+	 * Constructor for the main 'Responsive' class 
+	 */
+	var Responsive = function(options){
+		if (options) { 
+			$.extend(settings, options);
+		};
+		this.init(); 
+	};
+	
+	/*
+	 * This allows functions to run on events after 
+	 * the requests have stopped hitting it to
+	 * avoid things like resize resulting in umpteen
+	 * results being returned. Timeout can be set
+	 */
+	Responsive.prototype.regulate = function(func, wait, immediate){
 		var timeout;
 		return function() {
 			var context = this, args = arguments;
@@ -15,20 +33,33 @@ var responsive = {
 			timeout = setTimeout(later, wait);
 			if (callNow) func.apply(context, args);
 		};
-	},
+	};
 	
-	responsiveCheck: function(){
+	/*
+	 * Check the responsive state
+	 */
+	Responsive.prototype.responsiveCheck = function(){
 		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
-		responsive.breakPoint = thisState.toString();	
-		console.log(responsive.breakPoint);
-	}, 
+		settings.breakPoint = thisState.toString();	
+		console.log(settings.breakPoint);
+	};
+	
+	/*
+	 * Initialises the object
+	 */
+	Responsive.prototype.init = function(){
+		this.responsiveCheck();
 		
-	init: function() {
-		responsive.responsiveCheck();
-		window.addEventListener('resize', responsive.regulate(function() {
-		    responsive.responsiveCheck();
+		window.addEventListener('resize', this.regulate(function() {
+		    Responsive.responsiveCheck();
 		}, 100), false);
-	}
-};
+	};
+	
+	options.Responsive = Responsive;
+}(window));
 
-responsive.init();
+
+
+
+
+

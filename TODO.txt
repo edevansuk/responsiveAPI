@@ -1,0 +1,15 @@
+**************************************************************
+TODO
+**************************************************************
+
+EXTENDING
+Create a nice way to pass an object into the class so devs
+can override the default breakPoint etc.
+ Create settings as object of Responsive
+
+
+IMAGES
+Create a responsive image method
+ Eventially lazy load images in to save bandwidth and always
+ have a fallback.
+

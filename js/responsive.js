@@ -6,10 +6,11 @@
 	/* 
 	 * Constructor for the main 'Responsive' class 
 	 */
-	var Responsive = function(settings){
+	var Responsive = function(options){
 		/*if (options) { 
 			$.extend(settings, options);
 		};*/
+		
 		this.init(); 
 	};
 	

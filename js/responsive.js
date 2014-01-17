@@ -15,10 +15,9 @@
 	};
 	
 	/*
-	 * This allows functions to run on events after 
-	 * the requests have stopped hitting it to
-	 * avoid things like resize resulting in umpteen
-	 * results being returned. Timeout can be set
+	 * Delays rechecking a function based on an event such as window
+	 * resizing. Good for checking window width for example while reducing
+	 * the number of times the function runs.
 	 */
 	Responsive.prototype.regulate = function(func, wait, immediate){
 		var timeout;
@@ -42,6 +41,10 @@
 		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
 		settings.breakPoint = thisState.toString();	
 		console.log(settings.breakPoint);
+	};
+	
+	Responsive.prototype.page = function(){
+		//Execute passed functions here to abstract the breakpoints
 	};
 	
 	/*

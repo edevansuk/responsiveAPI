@@ -1,15 +1,18 @@
-(function(options) {
-	var settings = {
-		breakPoint: 'large'
-	};
-	
+(function(exports) {
 	/* 
 	 * Constructor for the main 'Responsive' class 
 	 */
 	var Responsive = function(options){
-		/*if (options) { 
-			$.extend(settings, options);
-		};*/
+		this.settings = {
+			breakPoint: null,
+			debug: true
+		};
+		
+		if (options) { 
+			$.extend(this.settings, options); // Relies on jQuery
+		};
+		
+		this.debug(this.settings.breakPoint);
 		
 		this.init(); 
 	};
@@ -39,12 +42,18 @@
 	 */
 	Responsive.prototype.responsiveCheck = function(){
 		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
-		settings.breakPoint = thisState.toString();	
-		console.log(settings.breakPoint);
+		this.settings.breakPoint = thisState.toString();	
+		this.debug(this.settings.breakPoint);
 	};
 	
 	Responsive.prototype.page = function(){
 		//Execute passed functions here to abstract the breakpoints
+	};
+	
+	Responsive.prototype.debug = function(error){
+		if(console){
+			console.log(error);
+		}
 	};
 	
 	/*
@@ -52,14 +61,17 @@
 	 */
 	Responsive.prototype.init = function(){
 		var $this = this;
-		$this.responsiveCheck();
+		
+		if($this.settings.breakPoint == null){
+			$this.responsiveCheck();
+		}
 		
 		window.addEventListener('resize', this.regulate(function() {
 			$this.responsiveCheck();
 		}, 100), false);
 	};
 	
-	options.Responsive = Responsive;
+	exports.Responsive = Responsive;
 }(window));
 
 

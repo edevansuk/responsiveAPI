@@ -47,11 +47,11 @@
 	 * Initialises the object
 	 */
 	Responsive.prototype.init = function(){
-		var obj = this;
-		obj.responsiveCheck();
+		var $this = this;
+		$this.responsiveCheck();
 		
 		window.addEventListener('resize', this.regulate(function() {
-			obj.responsiveCheck();
+			$this.responsiveCheck();
 		}, 100), false);
 	};
 	

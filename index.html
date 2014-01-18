@@ -22,7 +22,49 @@
 <script type="text/javascript">
 $script('responsive', function () {
 	console.log('responsive API loaded');
-	var page = new Responsive();
+	var page = new Responsive({breakPoint: 'large'});
+	
+	Responsive.prototype.actions = function(options){
+		var page = {
+			init: function(state) {
+				switch(state) {
+					case 'large':
+						page.large();
+						break;
+					case 'medium':
+						page.medium();
+						break;
+					case 'small':
+						page.small();
+						break;
+					default:
+						large();
+						break;
+				};
+			},
+			
+			large: function() {
+				console.log("Do large size");
+			},
+			
+			medium: function() {
+				console.log("Do medium size");
+			},
+			
+			small: function() {
+				console.log("Do small size");
+			}
+		};
+		
+		page.init(options);
+		
+	};
+	
+	page.actions(page.settings.breakPoint);
+	window.addEventListener('resize', page.regulate(function() {
+		page.actions(page.settings.breakPoint);
+	}, 100), false);
+	
 	/*
 	responsive.page = {
 		init: function(state) {

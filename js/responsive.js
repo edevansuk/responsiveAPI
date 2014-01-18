@@ -3,10 +3,7 @@
 	 * Constructor for the main 'Responsive' class 
 	 */
 	var Responsive = function(options){
-		this.settings = {
-			breakPoint: null,
-			debug: true
-		};
+		this.settings = {};
 		
 		if (options) { 
 			$.extend(this.settings, options); // Relies on jQuery
@@ -44,10 +41,6 @@
 		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
 		this.settings.breakPoint = thisState.toString();	
 		this.debug(this.settings.breakPoint);
-	};
-	
-	Responsive.prototype.page = function(){
-		//Execute passed functions here to abstract the breakpoints
 	};
 	
 	Responsive.prototype.debug = function(error){

@@ -1,3 +1,5 @@
+require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -9,7 +11,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
-        js: 'build/<%= pkg.name %>.min.js'
+        js: 'js/<%= pkg.name %>.min.js'
       }
     }
   });

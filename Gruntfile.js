@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       },
       build: {
         src: 'src/<%= pkg.name %>.js',
-        js: 'js/<%= pkg.name %>.min.js'
+        dest: 'js/<%= pkg.name %>.min.js'
       }
     }
   });

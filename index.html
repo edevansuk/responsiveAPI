@@ -21,25 +21,20 @@
 <script type="text/javascript" src="js/thirdPartyAPIs.js"></script>
 <script type="text/javascript">
 $script('responsive', function () {
-	
-	if(console){
-		console.log('responsive API loaded');	
-	}
-	
-	var page = new Responsive({breakPoint: 'large'});
+	var page = new Responsive();
 	
 	Responsive.prototype.actions = function(options){
-		var page = {
+		var size = {
 			init: function(state) {
 				switch(state) {
 					case 'large':
-						page.large();
+						size.large();
 						break;
 					case 'medium':
-						page.medium();
+						size.medium();
 						break;
 					case 'small':
-						page.small();
+						size.small();
 						break;
 					default:
 						large();
@@ -56,11 +51,12 @@ $script('responsive', function () {
 			},
 			
 			small: function() {
-				console.log("Do small size");
+				console.log('Do small size');
+				page.images(); // Runs the Responsive.images() method
 			}
 		};
 		
-		page.init(options);
+		size.init(options);
 		
 	};
 	

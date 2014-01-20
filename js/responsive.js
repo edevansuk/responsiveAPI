@@ -3,13 +3,15 @@
 	 * Constructor for the main 'Responsive' class 
 	 */
 	var Responsive = function(options){
+		if(console){
+			console.log('responsive API loaded');	
+		};
+		
 		this.settings = {};
 		
 		if (options) { 
 			$.extend(this.settings, options); // Relies on jQuery
 		};
-		
-		this.debug(this.settings.breakPoint);
 		
 		this.init(); 
 	};
@@ -40,13 +42,13 @@
 	Responsive.prototype.responsiveCheck = function(){
 		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
 		this.settings.breakPoint = thisState.toString();	
-		this.debug(this.settings.breakPoint);
 	};
 	
-	Responsive.prototype.debug = function(error){
-		if(console){
-			console.log(error);
-		}
+	/*
+	 * Image handling
+	 */
+	Responsive.prototype.images = function(){
+		console.log('Responsive.images ran');
 	};
 	
 	/*

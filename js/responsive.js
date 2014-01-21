@@ -3,15 +3,11 @@
 	 * Constructor for the main 'Responsive' class 
 	 */
 	var Responsive = function(options){
-		if(console){
-			console.log('responsive API loaded');	
-		};
-		
 		this.settings = {};
 		
 		if (options) { 
 			$.extend(this.settings, options); // Relies on jQuery
-		};
+		}
 		
 		this.init(); 
 	};
@@ -48,7 +44,25 @@
 	 * Image handling
 	 */
 	Responsive.prototype.images = function(){
-		console.log('Responsive.images ran');
+		// Find all elements on the page with data-splendid-src
+		var pageImg = document.querySelectorAll('[data-splendid-src]');
+		var pageImgLength = pageImg.length;
+		
+		for (var i=0;i<pageImgLength;i++) { 
+			var thisImgObj = pageImg[i];
+			var thisImgObjAtt = thisImgObj.getAttribute('data-splendid-src');
+			
+			var imgObjAttSplit = thisImgObjAtt.split(',');
+			
+			for(var s=0;s<imgObjAttSplit.length;s++){
+				var splitItem = imgObjAttSplit[s];
+				var sizeSplit = splitItem.split(':');
+				if(sizeSplit[0] == this.settings.breakPoint) {
+					var img = document.getElementById(thisImgObj.id);
+					img.src = sizeSplit[1];
+				};
+			}
+		}
 	};
 	
 	/*

@@ -14,9 +14,17 @@
 
 <body>
 
-<div class="pageWrap">
+<div class="pageWrap contain">
 	
+	<div class="imgWrap">
+		<img id="MrFlibble" src="img/imageSmall.png" data-splendid-src="small:img/imageSmall.png,medium:img/imageMedium.png,large:img/imageLarge.png" alt="Great image text" />
+	</div>
+	
+	<div class="imgWrap">
+		<img id="MrsNobble" src="img/imageSmall.png" data-splendid-src="small:img/imageSmall.png,medium:img/imageMedium.png,large:img/imageLarge.png" alt="Great image text" />
+	</div>
 </div><!-- }}} pageWrap -->
+
 
 <script type="text/javascript" src="js/thirdPartyAPIs.js"></script>
 <script type="text/javascript">
@@ -28,31 +36,15 @@ $script('responsive', function () {
 			init: function(state) {
 				switch(state) {
 					case 'large':
-						size.large();
+						page.images();
 						break;
 					case 'medium':
-						size.medium();
-						break;
-					case 'small':
-						size.small();
+						page.images();
 						break;
 					default:
-						large();
+						page.images();
 						break;
 				};
-			},
-			
-			large: function() {
-				console.log("Do large size");
-			},
-			
-			medium: function() {
-				console.log("Do medium size");
-			},
-			
-			small: function() {
-				console.log('Do small size');
-				page.images(); // Runs the Responsive.images() method
 			}
 		};
 		

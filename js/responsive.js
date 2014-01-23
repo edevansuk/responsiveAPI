@@ -4,9 +4,10 @@
 	 */
 	var Responsive = function(options){
 		this.settings = {};
-		
-		if (options) { 
-			$.extend(this.settings, options); // Relies on jQuery
+
+		if (options) {
+			for(i in options)
+        	this.settings[i] = options[i];
 		}
 		
 		this.init(); 

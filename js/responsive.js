@@ -4,7 +4,8 @@
 	 */
 	var Responsive = function(options){
 		this.settings = {};
-
+		
+		// extends the settings object, so you can set default breakPoint setting
 		if (options) {
 			for(i in options)
         	this.settings[i] = options[i];
@@ -50,7 +51,7 @@
 			pageImgLength = pageImg.length;
 		
 		for (var i=0;i<pageImgLength;i++) { 
-			var thisImgObj = pageImg[i];
+			var thisImgObj = pageImg[i],
 				thisImgObjAtt = thisImgObj.getAttribute('data-splendid-src'),
 				imgObjAttSplit = thisImgObjAtt.split(','),
 				imgObjAttSplitLgth = imgObjAttSplit.length;
@@ -60,22 +61,13 @@
 				// Create local versions of objects for performance
 				var splitItem = imgObjAttSplit[s], 
 					sizeSplit = splitItem.split(':'), 
+					sizeSplitStringFF = '\"'+sizeSplit[0].toString()+'\"',
 					sizeSplitString = sizeSplit[0].toString(); 
 				
-				if(sizeSplitString == this.settings.breakPoint) {
+				if(sizeSplitString == this.settings.breakPoint || sizeSplitStringFF == this.settings.breakPoint) {
                 	var img = document.getElementById(thisImgObj.id);
                     img.src = sizeSplit[1];
                  };
-				
-				/*
-				var splitItem = imgObjAttSplit[s],
-                	sizeSplit = splitItem.split(':');
-                
-				if(sizeSplit[0] == this.settings.breakPoint) {
-                	var img = document.getElementById(thisImgObj.id);
-                    img.src = sizeSplit[1];
-                 };
-                 */
 			}
 		}
 	};

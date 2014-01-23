@@ -29,6 +29,8 @@
 <script type="text/javascript" src="js/thirdPartyAPIs.js"></script>
 <script type="text/javascript">
 $script('responsive', function () {
+	console.log('Responsive API loaded');
+	
 	var page = new Responsive();
 	
 	Responsive.prototype.actions = function(options){
@@ -39,6 +41,9 @@ $script('responsive', function () {
 						page.images();
 						break;
 					case 'medium':
+						page.images();
+						break;
+					case 'small':
 						page.images();
 						break;
 					default:

@@ -7,6 +7,8 @@ IMAGES
 Create a responsive image method
  Eventially lazy load images in to save bandwidth and always
  have a fallback.
+ 
+ Next job: Refactor and fix FF issue
 
 ARCHITECTURE
  May need to re-architec this to use the dependencyList. Could

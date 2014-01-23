@@ -45,22 +45,36 @@
 	 */
 	Responsive.prototype.images = function(){
 		// Find all elements on the page with data-splendid-src
-		var pageImg = document.querySelectorAll('[data-splendid-src]');
-		var pageImgLength = pageImg.length;
+		var pageImg = document.querySelectorAll('[data-splendid-src]'),
+			pageImgLength = pageImg.length;
 		
 		for (var i=0;i<pageImgLength;i++) { 
 			var thisImgObj = pageImg[i];
-			var thisImgObjAtt = thisImgObj.getAttribute('data-splendid-src');
-			
-			var imgObjAttSplit = thisImgObjAtt.split(',');
-			
-			for(var s=0;s<imgObjAttSplit.length;s++){
-				var splitItem = imgObjAttSplit[s];
-				var sizeSplit = splitItem.split(':');
+				thisImgObjAtt = thisImgObj.getAttribute('data-splendid-src'),
+				imgObjAttSplit = thisImgObjAtt.split(','),
+				imgObjAttSplitLgth = imgObjAttSplit.length;
+				
+				
+			for(var s=0;s<imgObjAttSplitLgth;s++){
+				// Create local versions of objects for performance
+				var splitItem = imgObjAttSplit[s], 
+					sizeSplit = splitItem.split(':'), 
+					sizeSplitString = sizeSplit[0].toString(); 
+				
+				if(sizeSplitString == this.settings.breakPoint) {
+                	var img = document.getElementById(thisImgObj.id);
+                    img.src = sizeSplit[1];
+                 };
+				
+				/*
+				var splitItem = imgObjAttSplit[s],
+                	sizeSplit = splitItem.split(':');
+                
 				if(sizeSplit[0] == this.settings.breakPoint) {
-					var img = document.getElementById(thisImgObj.id);
-					img.src = sizeSplit[1];
-				};
+                	var img = document.getElementById(thisImgObj.id);
+                    img.src = sizeSplit[1];
+                 };
+                 */
 			}
 		}
 	};

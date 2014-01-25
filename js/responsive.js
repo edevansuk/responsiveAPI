@@ -61,7 +61,7 @@
 				// Create local versions of objects for performance
 				var splitItem = imgObjAttSplit[s], 
 					sizeSplit = splitItem.split(':'), 
-					sizeSplitStringFF = '\"'+sizeSplit[0].toString()+'\"',
+					sizeSplitStringFF = '\"' + sizeSplit[0].toString() + '\"',
 					sizeSplitString = sizeSplit[0].toString(); 
 				
 				if(sizeSplitString == this.settings.breakPoint || sizeSplitStringFF == this.settings.breakPoint) {

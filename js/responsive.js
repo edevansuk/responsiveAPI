@@ -62,11 +62,11 @@
 				var splitItem = imgObjAttSplit[s], 
 					sizeSplit = splitItem.split(':'), 
 					sizeSplitStringFF = '\"' + sizeSplit[0].toString() + '\"',
-					sizeSplitString = sizeSplit[0].toString(); 
+					sizeSplitString = sizeSplit[0].toString(),
+					cachedBreakpoint =  this.settings.breakPoint;
 				
-				if(sizeSplitString == this.settings.breakPoint || sizeSplitStringFF == this.settings.breakPoint) {
-                	var img = document.getElementById(thisImgObj.id);
-                    img.src = sizeSplit[1];
+				if(sizeSplitString == cachedBreakpoint || sizeSplitStringFF == cachedBreakpoint) {
+                    thisImgObj.src = sizeSplit[1];
                  };
 			}
 		}

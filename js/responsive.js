@@ -47,12 +47,12 @@
 	 */
 	Responsive.prototype.images = function(){
 		// Find all elements on the page with data-splendid-src
-		var pageImg = document.querySelectorAll('[data-splendid-src]'),
+		var pageImg = document.querySelectorAll('[data-responsive-src]'),
 			pageImgLength = pageImg.length;
-		
+			
 		for (var i=0;i<pageImgLength;i++) { 
 			var thisImgObj = pageImg[i],
-				thisImgObjAtt = thisImgObj.getAttribute('data-splendid-src'),
+				thisImgObjAtt = thisImgObj.getAttribute('data-responsive-src'),
 				imgObjAttSplit = thisImgObjAtt.split(','),
 				imgObjAttSplitLgth = imgObjAttSplit.length;
 				

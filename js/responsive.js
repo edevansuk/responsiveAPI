@@ -2,7 +2,7 @@
 	/* 
 	 * Constructor for the main 'Responsive' class 
 	 */
-	var Responsive = function(options){
+	var ResponsiveUI = function(options){
 		this.settings = {};
 		
 		// extends the settings object, so you can set default breakPoint setting
@@ -19,7 +19,7 @@
 	 * resizing. Good for checking window width for example while reducing
 	 * the number of times the function runs.
 	 */
-	Responsive.prototype.regulate = function(func, wait, immediate){
+	ResponsiveUI.prototype.regulate = function(func, wait, immediate){
 		var timeout;
 		return function() {
 			var context = this, args = arguments;
@@ -37,7 +37,7 @@
 	/*
 	 * Check the responsive state
 	 */
-	Responsive.prototype.responsiveCheck = function(){
+	ResponsiveUI.prototype.responsiveCheck = function(){
 		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
 		this.settings.breakPoint = thisState.toString();	
 	};
@@ -45,7 +45,7 @@
 	/*
 	 * Image handling
 	 */
-	Responsive.prototype.images = function(){
+	ResponsiveUI.prototype.images = function(){
 		// Find all elements on the page with data-splendid-src
 		var pageImg = document.querySelectorAll('[data-responsive-src]'),
 			pageImgLength = pageImg.length;
@@ -75,7 +75,7 @@
 	/*
 	 * Initialises the object
 	 */
-	Responsive.prototype.init = function(){
+	ResponsiveUI.prototype.init = function(){
 		var $this = this;
 		
 		if($this.settings.breakPoint == null){
@@ -87,7 +87,7 @@
 		}, 100), false);
 	};
 	
-	exports.Responsive = Responsive;
+	exports.ResponsiveUI = ResponsiveUI;
 }(window));
 
 

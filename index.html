@@ -31,9 +31,9 @@
 $script('responsive', function () {
 	console.log('Responsive API loaded');
 	
-	var page = new Responsive();
+	var page = new ResponsiveUI();
 	
-	Responsive.prototype.actions = function(options){
+	ResponsiveUI.prototype.actions = function(options){
 		var size = {
 			init: function(state) {
 				switch(state) {

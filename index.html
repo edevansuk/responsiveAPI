@@ -17,7 +17,7 @@
 <div class="pageWrap contain">
 	
 	<div class="imgWrap">
-		<img src="img/imageSmall.png" data-responsive-src="small:img/imageSmall.png,medium:img/imageMedium.png,large:img/imageLarge.png" alt="Great image text" />
+		<img src="img/imageSmall.png" data-responsive-src="small:img/imageSmall.png,medium:img/imageMedium.png,large:img/imageLarge.png" width="100%" alt="Great image text" />
 	</div>
 	
 	<div class="imgWrap">
@@ -26,9 +26,10 @@
 </div><!-- }}} pageWrap -->
 
 
-<script type="text/javascript" src="js/thirdPartyAPIs.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
-$script('ResponsiveUI', function () { // $script.path is set in thirdPartyAPIs.js
+// $script.path is set in script.js
+$script('ResponsiveUI', function () {
 	console.log('Responsive API loaded');
 	
 	var page = new ResponsiveUI();
@@ -64,14 +65,14 @@ $script('ResponsiveUI', function () { // $script.path is set in thirdPartyAPIs.j
 	
 });
 
-$script('tracking', function () {
-	$("[data-track = 'true']").trackAnalytic();
-	if(console){
-		console.log('Tracking script loaded and events added');	
-	}
+$script('jquery-1.11.0.min', function() { // Functions that require jQuery
+	$script('tracking', function () {
+		$("[data-track = 'true']").trackAnalytic();
+		if(console){
+			console.log('Tracking script loaded and events added');	
+		}
+	});	
 });
-
-
 </script>
 </body>
 </html>

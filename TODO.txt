@@ -7,9 +7,13 @@ IMAGES
 Create a responsive image method
  Eventially lazy load images in to save bandwidth and always
  have a fallback.
- 
- Next job: Refactor and fix FF issue
 
 ARCHITECTURE
  May need to re-architec this to use the dependencyList. Could
  clean the code up: http://www.dustindiaz.com/scriptjs
+ 
+PAGE TYPE ACTIONS
+ As pages are likely to be grouped then create a seperate file
+ for each each grouping,, or create a loader based on $script
+ to avoid having to have a lot of inline code within each
+ page. Particularly if it's often the same.

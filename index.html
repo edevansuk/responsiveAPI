@@ -65,8 +65,8 @@ $script('ResponsiveUI', function () {
 	
 });
 
-$script('jquery-1.11.0.min', function() { // Functions that require jQuery
-	$script('tracking', function () {
+$script('jquery-1.11.0.min', function() { // Functions that require jQuery loaded below
+	$script('tracking', function () { // loadings in js/tracking.js
 		$("[data-track = 'true']").trackAnalytic();
 		if(console){
 			console.log('Tracking script loaded and events added');	

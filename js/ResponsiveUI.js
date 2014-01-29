@@ -85,9 +85,7 @@
 			return;
 		}
 		
-		if($this.settings.breakPoint === null){
-			$this.responsiveCheck();
-		}
+		$this.responsiveCheck(); // For first scenarios
 		
 		window.addEventListener('resize', this.regulate(function() {
 			$this.responsiveCheck();

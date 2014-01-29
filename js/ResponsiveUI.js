@@ -9,8 +9,8 @@
 		
 		// extends the settings object, so you can set default breakPoint setting
 		if (options) {
-			for(i in options)
-        	this.settings[i] = options[i];
+			for(var i in options)
+				this.settings[i] = options[i];
 		}
 		
 		this.init(); 
@@ -69,7 +69,7 @@
 				
 				if(sizeSplitString == cachedBreakpoint || sizeSplitStringFF == cachedBreakpoint) {
                     thisImgObj.src = sizeSplit[1];
-                 };
+                }
 			}
 		}
 	};
@@ -85,7 +85,7 @@
 			return;
 		}
 		
-		if($this.settings.breakPoint == null){
+		if($this.settings.breakPoint === null){
 			$this.responsiveCheck();
 		}
 		

@@ -29,17 +29,16 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
 // $script.path is set in script.js
-$script('ResponsiveUI', function () {
+$script('ResponsiveUI.min', function () {
 	if(window.console){
 		console.log('Responsive API loaded');
 	}
 	
 	var page = new ResponsiveUI();
 	
-	if(!page.settings.supported){return;}; // Checks for support
+	if(!page.settings.supported){return;}; // Checks for support and ResponsiveUI 
 	
 	ResponsiveUI.prototype.actions = function(options){
-		console.log('actions ran');
 		var size = {
 			init: function(state){
 				switch(state) {

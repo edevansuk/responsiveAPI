@@ -30,13 +30,18 @@
 <script type="text/javascript">
 // $script.path is set in script.js
 $script('ResponsiveUI', function () {
-	console.log('Responsive API loaded');
+	if(window.console){
+		console.log('Responsive API loaded');
+	}
 	
 	var page = new ResponsiveUI();
 	
+	if(!page.settings.supported){return;}; // Checks for support
+	
 	ResponsiveUI.prototype.actions = function(options){
+		console.log('actions ran');
 		var size = {
-			init: function(state) {
+			init: function(state){
 				switch(state) {
 					case 'large':
 						page.images();
@@ -68,7 +73,7 @@ $script('ResponsiveUI', function () {
 $script('jquery-1.11.0.min', function() { // Functions that require jQuery loaded below
 	$script('tracking', function () { // loadings in js/tracking.js
 		$("[data-track = 'true']").trackAnalytic();
-		if(console){
+		if(window.console){
 			console.log('Tracking script loaded and events added');	
 		}
 	});	

@@ -3,7 +3,9 @@
 	 * Constructor for the main 'Responsive' class 
 	 */
 	var ResponsiveUI = function(options){
-		this.settings = {};
+		this.settings = {
+			supported: true // Checked and validated in this.init();
+		};
 		
 		// extends the settings object, so you can set default breakPoint setting
 		if (options) {
@@ -46,7 +48,7 @@
 	 * Image handling
 	 */
 	ResponsiveUI.prototype.images = function(){
-		// Find all elements on the page with data-splendid-src
+		// Find all elements on the page with data-[namespace]-src
 		var pageImg = document.querySelectorAll('[data-responsive-src]'),
 			pageImgLength = pageImg.length;
 			
@@ -77,6 +79,11 @@
 	 */
 	ResponsiveUI.prototype.init = function(){
 		var $this = this;
+		// Checks for method support and sets a value that can be interrogated later
+		if(!window.querySelector && !window.addEventListener) {
+			$this.settings.supported = false;
+			return;
+		}
 		
 		if($this.settings.breakPoint == null){
 			$this.responsiveCheck();

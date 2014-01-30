@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 				src: [
 					'css/reset.css',
 					'css/core.css',
-					'css/responsive.css'
+					'css/mediaQueries.css'
 					],
 				dest: 'combined.css'
 			}	

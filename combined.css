@@ -1,0 +1,154 @@
+/**************************/
+/* -- Basic HTML Rules -- */
+/**************************/
+/* - stop gap if only inline element in block level container - */
+img,object,embed{border:none;}
+/* - to avoid ff<1.03 bug - */
+html,body,div,pre,form,table,fieldset,h1,h2,h3,h4,h5,h6,dl,hr,p,blockquote{margin:0;padding:0;/*color:#FFFFFF;*/}
+/* - look normal - */
+a img,:link img,:visited img,fieldset{border:none; color:#FFFFFF;}
+/* - dot less - */
+/*ul,ol,dl{list-style:none;}*/
+/* - uniform styles - */
+h1,h2,h3,h4,h5,h6,pre,code,input,textarea,select{font-size:1em;}
+
+/* -- General Styles -- */
+/* - default font */
+html,body{font-family:'Arial',verdana,tahoma,georgia,sans-serif}
+/* - give default font style - */
+p,li,dt,dd,label,address,th,td,legend,input,select,textarea{font-size:70%;line-height:120%;}
+th dt, td dt, th dd, td dd, th li, td li, li li, dt dt, dt dd, dd dt, dd dd, legend legend{font-size:100%;}
+h1,h2,h3,h4,h5,h6,p,ul,dl,ol,pre{margin-bottom:1em;}
+/* - table - */
+table{border-collapse:collapse;}
+td, th{vertical-align:top;}
+
+/* -- General Classes -- */
+/* --  errors -- */
+.error{color:red;list-style:none;}
+.errorTop{margin-bottom:0.5em;margin-top:0.2em}
+.errorBottom{margin-bottom:0.5em;margin-top:0.2em}
+
+/* -- contain -- */
+.contain:after{content:".";display:block;clear:both;visibility:hidden;height:0;}
+/* ie mac fix */
+.contain{display:inline-table;}
+* html .contain{/* nomac \*/height:1%;/* nomac */}
+.contain{display:block;}/* should hide from mac but seems to work */
+.contain{zoom: 1} /* IE 7 Fix */
+/* -- image replacement -- */
+.imageReplace{position:relative;/* nomac \*/overflow:hidden;/* nomac */margin:0px; padding:0px;}
+.imageReplace span{width:100%;height:100%;position:absolute;background-repeat:no-repeat;top:0px;left:0px;z-index:1;}
+/* -- clear -- */
+.clear{clear:both;}
+
+
+/* -- Page Wrap -- */
+body.centerAlign{text-align:left;}
+body.centerAlign #pageWrap{text-align:left; margin:0 auto;}
+
+/* -- Standard Floating Functions --*/
+.floatLeft {
+	float: left;
+}
+
+.floatRight {
+	float: right;
+}
+/*
+	MAIN HOLDING DIV
+*/
+.pageWrap {
+	margin: 10px auto 0px auto;
+	width: 100%;
+}
+
+.imgWrap {
+        border: solid transparent 5px;
+        padding-bottom: 50%;
+        position: relative;
+}
+
+.pageWrap .imgWrap:nth-child(even) {
+	border-top: none;
+}
+
+.imgWrap img {
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+}
+
+/*
+ * Typography
+ */
+html,body,input,select,textarea {
+	font-family: arial, sans-serif;
+}
+
+p,li,dt,dd,label,address,th,td,legend,input,select,textarea {
+	line-height: 120%;
+}
+
+/* 
+ * STANDARD .NET ERROR MESSAGES
+ * Note these are the standard classes that .Net MVC returns. So use these if possible
+ * Example result 1: <input type="text" value="" name="LettingsAccountsManagerLogin.Username" id="LettingsAccountsManagerLogin_Username" class="input-validation-error" autocomplete="off"> 
+ * Example result 2: <span class="field-validation-error">invalid login details</span> 
+ */
+
+/* This is added to the input */
+.input-validation-error {
+	color: #ff0000;
+}
+
+/* This is the error message that's returned */
+.field-validation-error {
+	color: #ff0000;
+}
+/*
+ * Core layouts for different breakpoints
+ */
+@media only screen and (min-width: 320px) {
+
+body:before {
+	content: 'small';
+	display: none;
+}
+
+.pageWrap {
+	background: red;
+	max-width: 599px;
+}
+
+}
+
+
+@media only screen and (min-width: 600px) {
+
+body:before {
+	content: 'medium';
+	display: none;
+}
+
+.pageWrap {
+	background: blue;
+	max-width: 1007px;
+}
+
+}
+
+@media only screen and (min-width: 1008px) {
+
+body:before {
+	content: 'large';
+	display: none;
+}
+
+.pageWrap {
+	background: green;
+	width: 1008px;
+}
+
+}

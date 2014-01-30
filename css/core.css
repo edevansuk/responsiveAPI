@@ -1,0 +1,52 @@
+/*
+	MAIN HOLDING DIV
+*/
+.pageWrap {
+	margin: 10px auto 0px auto;
+	width: 100%;
+}
+
+.imgWrap {
+        border: solid transparent 5px;
+        padding-bottom: 50%;
+        position: relative;
+}
+
+.pageWrap .imgWrap:nth-child(even) {
+	border-top: none;
+}
+
+.imgWrap img {
+        position: absolute;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+}
+
+/*
+ * Typography
+ */
+html,body,input,select,textarea {
+	font-family: arial, sans-serif;
+}
+
+p,li,dt,dd,label,address,th,td,legend,input,select,textarea {
+	line-height: 120%;
+}
+
+/* 
+ * STANDARD .NET ERROR MESSAGES
+ * Note these are the standard classes that .Net MVC returns. So use these if possible
+ * Example result 1: <input type="text" value="" name="LettingsAccountsManagerLogin.Username" id="LettingsAccountsManagerLogin_Username" class="input-validation-error" autocomplete="off"> 
+ * Example result 2: <span class="field-validation-error">invalid login details</span> 
+ */
+
+/* This is added to the input */
+.input-validation-error {
+	color: #ff0000;
+}
+
+/* This is the error message that's returned */
+.field-validation-error {
+	color: #ff0000;
+}

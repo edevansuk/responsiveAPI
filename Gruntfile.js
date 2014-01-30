@@ -2,9 +2,26 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		concat: {
+			css: {
+				src: [
+					'css/reset.css',
+					'css/core.css',
+					'css/responsive.css'
+					],
+				dest: 'combined.css'
+			}	
+		},
+		
+		cssmin: {
+			css:{
+                src: 'temp/combined.css',
+                dest: 'css/styles.css'
+            }
+		},
+		
 		uglify: {
 			options: {
-				//mangle: false,
 				banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
 			},
 			build: {
@@ -20,11 +37,13 @@ module.exports = function(grunt) {
 	});
 
 	// Load the plugin that provides the "uglify" task.
+	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	// Tasks, by default it validates the JS and then minifies. 
 	// What's great is that the minified code doesn\'t work which is a nice feature'
-	grunt.registerTask('default', ['jshint', 'uglify']);
+	grunt.registerTask('default', ['jshint', 'concat:css', 'cssmin:css', 'uglify']);
 	grunt.registerTask('validate', ['jshint']);
 };

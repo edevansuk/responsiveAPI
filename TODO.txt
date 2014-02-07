@@ -4,13 +4,17 @@ TODO
 
 
 IMAGES
-Create a responsive image method
- Eventially lazy load images in to save bandwidth and always
- have a fallback.
+Lazy load images in to save bandwidth and always
+have a fallback.
 
 ARCHITECTURE
- May need to re-architec this to use the dependencyList. Could
- clean the code up: http://www.dustindiaz.com/scriptjs
+The UI should maintain state and create a flag to say if
+the site has hit a new break point rather than just a larger
+version of the current breakpoint -
+Particularly more performant for loading images,
+
+May need to re-architec this to use the dependencyList. Could
+clean the code up: http://www.dustindiaz.com/scriptjs
  
 PAGE TYPE ACTIONS
  As pages are likely to be grouped then create a seperate file

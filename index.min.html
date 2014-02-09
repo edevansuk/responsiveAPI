@@ -36,26 +36,41 @@ $script('ResponsiveUI.min', function () {
 	if(!page.settings.supported){return;}; // Checks for support and ResponsiveUI 
 	
 	ResponsiveUI.prototype.actions = function(options){
-		var size = {
+		var methods = {
 			init: function(state){
-				switch(state) {
-					case 'large':
-						page.images();
-						break;
-					case 'medium':
-						page.images();
-						break;
-					case 'small':
-						page.images();
-						break;
-					default:
-						page.images();
-						break;
-				};
+				// Uses index of to account for FF returning "large" and others returning: large
+				if(state.indexOf('large')){
+					methods.largeUI();
+				} else if(state.indexOf('medium')){
+					methods.mediumUI();
+				} else if(state.indexOf('small')){
+					methods.smallUI();
+				} 
+			},
+			
+			smallUI: function(){
+				if(page.breakPointChanged()){
+					console.log('Small fired');
+					page.images();
+				}
+			},
+			
+			mediumUI: function(){
+				if(page.breakPointChanged()){
+					console.log('Medium fired');
+					page.images();
+				}
+			},
+			
+			largeUI: function(){
+				if(page.breakPointChanged()){
+					console.log('Large fired');
+					page.images();
+				}
 			}
 		};
 		
-		size.init(options);
+		methods.init(options);
 		
 	};
 	

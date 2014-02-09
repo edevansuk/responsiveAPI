@@ -28,46 +28,7 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
 // $script.path is set in script.js
-$script('ResponsiveUI', function () {
-	if(window.console){
-		console.log('Responsive API loaded');
-	}
-	
-	var page = new ResponsiveUI();
-	
-	if(!page.settings.supported){return;}; // Checks for support and ResponsiveUI 
-	
-	ResponsiveUI.prototype.actions = function(options){
-		var size = {
-			init: function(state){
-				switch(state) {
-					case 'large':
-						page.images();
-						break;
-					case 'medium':
-						page.images();
-						break;
-					case 'small':
-						page.images();
-						break;
-					default:
-						page.images();
-						break;
-				};
-			}
-		};
-		
-		size.init(options);
-		
-	};
-	
-	page.actions(page.settings.breakPoint);
-	window.addEventListener('resize', page.regulate(function() {
-		page.actions(page.settings.breakPoint);
-	}, 100), false);
-	
-});
-
+$script('pageInteractions', 'page');
 $script('jquery-1.11.0.min', function() { // Functions that require jQuery loaded below
 	$script('tracking', function () { // loadings in js/tracking.js
 		$("[data-track = 'true']").trackAnalytic();

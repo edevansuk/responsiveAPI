@@ -28,7 +28,67 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript">
 // $script.path is set in script.js
-$script('pageInteractions', 'page');
+$script('ResponsiveUI', function () {
+	if(window.console){
+		console.log('Responsive API loaded');
+	}
+	
+	var page = new ResponsiveUI();
+	
+	if(!page.settings.supported){return;}; // Checks for support and ResponsiveUI 
+	
+	ResponsiveUI.prototype.actions = function(options){
+		var methods = {
+			init: function(state){
+				switch(state) {
+					case 'large':
+						methods.largeUI();
+						break;
+					case 'medium':
+						methods.mediumUI();
+						break;
+					case 'small':
+						methods.smallUI();
+						break;
+					default:
+						page.images();
+						break;
+				};
+			},
+			
+			smallUI: function(){
+				if(page.breakPointChanged){
+					console.log('Small fired');
+					page.images();
+				}
+			},
+			
+			mediumUI: function(){
+				if(page.breakPointChanged){
+					console.log('Medium fired');
+					page.images();
+				}
+			},
+			
+			largeUI: function(){
+				if(page.breakPointChanged){
+					console.log('Large fired');
+					page.images();
+				}
+			}
+		};
+		
+		methods.init(options);
+		
+	};
+	
+	page.actions(page.settings.breakPoint);
+	window.addEventListener('resize', page.regulate(function() {
+		page.actions(page.settings.breakPoint);
+	}, 100), false);
+	
+});
+
 $script('jquery-1.11.0.min', function() { // Functions that require jQuery loaded below
 	$script('tracking', function () { // loadings in js/tracking.js
 		$("[data-track = 'true']").trackAnalytic();

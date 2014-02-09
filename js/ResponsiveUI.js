@@ -79,7 +79,6 @@
 	 * Check the breakpoint has changed or not
 	 */
 	ResponsiveUI.prototype.breakPointChanged = function(){
-		console.log('bpChecker ran');
 		var localBP = this.settings.breakPoint,
 			localLBP = this.settings.lastBreakPoint;
 		

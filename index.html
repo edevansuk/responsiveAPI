@@ -40,38 +40,37 @@ $script('ResponsiveUI', function () {
 	ResponsiveUI.prototype.actions = function(options){
 		var methods = {
 			init: function(state){
-				switch(state) {
-					case 'large':
-						methods.largeUI();
-						break;
-					case 'medium':
-						methods.mediumUI();
-						break;
-					case 'small':
-						methods.smallUI();
-						break;
-					default:
-						page.images();
-						break;
-				};
+				var state = state.toString();
+				console.log('the state is: ' + state);
+				var methodName = state + 'UI()';
+				console.log('Method to call ' + methodName);
+				
+				// Uses index of to account for FF returning "large" and others returning: large
+				if(state.indexOf('large')){
+					methods.largeUI();
+				} else if(state.indexOf('medium')){
+					methods.mediumUI();
+				} else if(state.indexOf('small')){
+					methods.smallUI();
+				} 
 			},
 			
 			smallUI: function(){
-				if(page.breakPointChanged){
+				if(page.breakPointChanged()){
 					console.log('Small fired');
 					page.images();
 				}
 			},
 			
 			mediumUI: function(){
-				if(page.breakPointChanged){
+				if(page.breakPointChanged()){
 					console.log('Medium fired');
 					page.images();
 				}
 			},
 			
 			largeUI: function(){
-				if(page.breakPointChanged){
+				if(page.breakPointChanged()){
 					console.log('Large fired');
 					page.images();
 				}

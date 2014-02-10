@@ -40,7 +40,6 @@ $script('ResponsiveUI', function () {
 	ResponsiveUI.prototype.actions = function(options){
 		var methods = {
 			init: function(state){
-				console.log('state ' + state);
 				// Uses index of to account for FF returning "large" and others returning: large
 				if(state === 'large' || state === '"large"'){
 					methods.largeUI();

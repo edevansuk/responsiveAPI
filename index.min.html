@@ -39,7 +39,8 @@ $script('ResponsiveUI.min', function () {
 		var methods = {
 			init: function(state){
 				console.log('state ' + state);
-				// Uses index of to account for FF returning "large" and others returning: large
+				
+				// Accounts for FF returning "large" and others returning: large
 				if(state === 'large' || state === '"large"'){
 					methods.largeUI();
 				} else if(state === 'medium' || state ==='"medium"'){

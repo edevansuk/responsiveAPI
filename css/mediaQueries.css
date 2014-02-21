@@ -3,7 +3,7 @@
  */
 @media only screen and (min-width: 320px) {
 
-body:before {
+body:after {
 	content: 'small';
 	display: none;
 }
@@ -18,7 +18,7 @@ body:before {
 
 @media only screen and (min-width: 600px) {
 
-body:before {
+body:after {
 	content: 'medium';
 	display: none;
 }
@@ -32,7 +32,7 @@ body:before {
 
 @media only screen and (min-width: 1008px) {
 
-body:before {
+body:after {
 	content: 'large';
 	display: none;
 }

@@ -41,7 +41,7 @@
 	 * Check the responsive state
 	 */
 	ResponsiveUI.prototype.responsiveCheck = function(){
-		var thisState = window.getComputedStyle(document.querySelector('body'), ':before').getPropertyValue('content');
+		var thisState = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content');
 		this.settings.breakPoint = thisState.toString();	
 	};
 

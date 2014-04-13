@@ -112,43 +112,46 @@ p,li,dt,dd,label,address,th,td,legend,input,select,textarea {
  */
 @media only screen and (min-width: 320px) {
 
-body:before {
-	content: 'small';
-	display: none;
-}
-
-.pageWrap {
-	background: red;
-	max-width: 599px;
-}
+	body:after {
+		content: 'small';
+		visibility: hidden;
+		float: left;
+	}
+	
+	.pageWrap {
+		background: red;
+		max-width: 599px;
+	}
 
 }
 
 
 @media only screen and (min-width: 600px) {
 
-body:before {
-	content: 'medium';
-	display: none;
-}
-
-.pageWrap {
-	background: blue;
-	max-width: 1007px;
-}
+	body:after {
+		content: 'medium';
+		visibility: hidden;
+		float: left;
+	}
+	
+	.pageWrap {
+		background: blue;
+		max-width: 1007px;
+	}
 
 }
 
 @media only screen and (min-width: 1008px) {
 
-body:before {
-	content: 'large';
-	display: none;
-}
-
-.pageWrap {
-	background: green;
-	width: 1008px;
-}
+	body:after {
+		content: 'large';
+		visibility: hidden;
+		float: left;
+	}
+	
+	.pageWrap {
+		background: green;
+		width: 1008px;
+	}
 
 }

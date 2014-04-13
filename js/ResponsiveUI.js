@@ -41,8 +41,10 @@
 	 * Check the responsive state
 	 */
 	ResponsiveUI.prototype.responsiveCheck = function(){
-		var thisState = window.getComputedStyle(document.querySelector('body'), ':after').getPropertyValue('content');
-		this.settings.breakPoint = thisState.toString();	
+        var theBody = document.querySelector('body');
+        var thisState = getComputedStyle(theBody, ':before').content;
+        var thisStateNormalised = thisState.replace( /"/g, '' ); // Removes double quotes in FF
+        this.settings.breakPoint = thisStateNormalised.toString();
 	};
 
 	/*

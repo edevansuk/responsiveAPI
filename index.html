@@ -41,11 +41,11 @@ $script('ResponsiveUI', function () {
 		var methods = {
 			init: function(state){
 				// Uses index of to account for FF returning "large" and others returning: large
-				if(state === 'large' || state === '"large"'){
+				if(state === 'large'){
 					methods.largeUI();
-				} else if(state === 'medium' || state ==='"medium"'){
+				} else if(state === 'medium'){
 					methods.mediumUI();
-				} else if(state === 'small' || state === '"small"'){
+				} else if(state === 'small'){
 					methods.smallUI();
 				} 
 			},

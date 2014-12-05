@@ -25,18 +25,18 @@
 </div><!-- }}} pageWrap -->
 
 
-<script type="text/javascript" src="js/script.js"></script>
+<script type="text/javascript" src="js/ResponsiveUI.js"></script>
 <script type="text/javascript">
-// $script.path is set in script.js
-$script('ResponsiveUI', function () {
-	if(window.console){
+(function (window, ResponsiveUI) {
+	if(typeof window.console != 'undefined'){
 		console.log('Responsive API loaded');
 	}
 	
 	var page = new ResponsiveUI();
 	
 	if(!page.settings.supported){return;}; // Checks for support and ResponsiveUI 
-	
+
+
 	ResponsiveUI.prototype.actions = function(options){
 		var methods = {
 			init: function(state){
@@ -81,16 +81,8 @@ $script('ResponsiveUI', function () {
 		page.actions(page.settings.breakPoint);
 	}, 100), false);
 	
-});
+})(window, ResponsiveUI);
 
-$script('jquery-1.11.0.min', function() { // Functions that require jQuery loaded below
-	$script('tracking', function () { // loadings in js/tracking.js
-		$("[data-track = 'true']").trackAnalytic();
-		if(window.console){
-			console.log('Tracking script loaded and events added');	
-		}
-	});	
-});
 </script>
 </body>
 </html>

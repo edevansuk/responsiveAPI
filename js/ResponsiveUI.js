@@ -112,7 +112,7 @@
 	};
 
 	exports.ResponsiveUI = ResponsiveUI;
-}(window));
+})(window);
 
 
 

@@ -44,6 +44,5 @@ module.exports = function(grunt) {
 
 	// Tasks, by default it validates the JS and then minifies. 
 	// What's great is that the minified code doesn\'t work which is a nice feature'
-	grunt.registerTask('default', ['jshint', 'concat:css', 'cssmin:css', 'uglify']);
-	grunt.registerTask('validate', ['jshint']);
+	grunt.registerTask('default', ['concat:css', 'cssmin:css', 'uglify']);
 };
